@@ -1,0 +1,212 @@
+{
+  "clickSound": {
+    "uuid": "b5f03953-f054-4a02-9d70-5e0a283e28a6",
+    "url": "https://firebasestorage.googleapis.com/v0/b/sticky-20bca.appspot.com/o/sgm-asset%2F5c87afaa-fd06-410b-9047-6f83711028af%2F0fed27cd-a264-4741-a90b-5a6f00b2f54f%2Fcode.MP3?alt=media&token=7cc5f792-57a2-4d5f-917e-1dbfc682a0f6",
+    "description": "Start",
+    "purpose": "Audio confirmation for UI/game state transitions",
+    "type": "AUDIO",
+    "metadata": {
+      "duration": 1.424,
+      "fileExtension": "audio/mp3"
+    }
+  },
+  "UHO_IDLE": null,
+  "NOTE_GOLD": {
+    "uuid": "5f9b5ba9-26cb-4d95-ba65-68d18f44440a",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/5f9b5ba9-26cb-4d95-ba65-68d18f44440a.png",
+    "description": "A shiny golden musical note, high contrast with a slight metallic glint. Simple geometric shape optimized for 40x40 pixel scale, bold outline to ensure readability against city backgrounds.",
+    "purpose": "Collectible currency that fills the performance meter.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "NOISE_CLOUD": {
+    "uuid": "cd7ae454-68f4-45dc-aafb-4eccb17743f8",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/cd7ae454-68f4-45dc-aafb-4eccb17743f8.png",
+    "description": "A jagged, purple and grey static cloud representing urban noise. Unstable and glitchy appearance with sharp edges, high contrast against light backgrounds, 50x50 pixel scale.",
+    "purpose": "Obstacle that resets the combo and reduces lives.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "UPGRADE_MIC": {
+    "uuid": "60646cdc-76b9-4de1-91ce-7dfd07565f4a",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/60646cdc-76b9-4de1-91ce-7dfd07565f4a.png",
+    "description": "A clear microphone icon with a silver mesh head and black handle. Iconic silhouette for power-up recognition, 60x60 pixel scale, clean and readable design.",
+    "purpose": "Power-up icon that grants the singing aura upgrade.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "CITY_BG": {
+    "uuid": "07b89470-2e3e-4848-80ce-98b4caeb6cc0",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/07b89470-2e3e-4848-80ce-98b4caeb6cc0.png",
+    "description": "A muted light-grey city sidewalk sketch. Low contrast with faded details to ensure characters pop. Empty scenery with no people, atmospheric perspective, vertical orientation for mobile portrait mode.",
+    "purpose": "The scrolling background environment for the game.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 768,
+      "height": 1344,
+      "fileExtension": "image/png"
+    }
+  },
+  "UHO_IDLE_NO_BERET": {
+    "uuid": "5c153edd-cc51-4e55-9441-d18019e10951",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/5c153edd-cc51-4e55-9441-d18019e10951.png",
+    "description": "A joyful street musician, blue and white striped marinière shirt, blue jeans, holding a brown folk guitar, no headwear, short hair, front-facing pose, bold silhouette, high contrast, readable at 80x80 pixels, isolated on transparent background.",
+    "purpose": "The main player character, a street musician without a beret, used for the idle state and core gameplay.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "v7xfln_bstreet_musician_no_beret": {
+    "uuid": "5c153edd-cc51-4e55-9441-d18019e10951",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/5c153edd-cc51-4e55-9441-d18019e10951.png",
+    "description": "A joyful street musician, blue and white striped marinière shirt, blue jeans, holding a brown folk guitar, no headwear, short hair, front-facing pose, bold silhouette, high contrast, readable at 80x80 pixels, isolated on transparent background.",
+    "purpose": "UHO",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "asg662kulight_bulb_on_icon": {
+    "uuid": "a5b34494-6ecb-479d-874f-0b6f95357b22",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/2fbed89b-304d-4813-81ee-96983202d5cb/a5b34494-6ecb-479d-874f-0b6f95357b22.png",
+    "description": "Flat vector-style square UI icon of a classic light bulb in the ON state, isolated on a transparent background. The bulb reuses the same simple silhouette and proportions as the existing OFF icon: rounded glass bulb, short neck, and small screw base with a thin, clean outline. The glass area is filled with a bright warm yellow #FACC15, with a subtle radial gradient or soft inner highlight to imply glow. Around the bulb, a few short, simple outward rays or halo arcs in lighter yellow accentuate that it is lit, but are kept minimal so the design remains clear when scaled down to 48–96px. The base is a neutral dark gray, outlines are thin and crisp, with no text, border panel, or complex background, ensuring a clean, readable icon at small HUD sizes.",
+    "purpose": "Note ramassée avec succès ",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "qJK-AwFmbackground": {
+    "uuid": "FC493CE6-2E90-4F38-84A1-41EBFE81EF5E",
+    "url": "https://firebasestorage.googleapis.com:443/v0/b/sticky-20bca.appspot.com/o/game%2Ff505612b-7883-44aa-a6ad-71fd3a761bad%2Fassets%2FFC493CE6-2E90-4F38-84A1-41EBFE81EF5E.png?alt=media&token=ffb5daa3-ec96-4e79-8b15-38f5d77fd324",
+    "description": "No description",
+    "purpose": "Background",
+    "type": "LOCAL_IMAGE",
+    "metadata": {
+      "duration": 0,
+      "fileExtension": "image/webp"
+    }
+  },
+  "dzY67NIVfond": {
+    "uuid": "D0005201-CC01-46EC-9A9B-FBFB8373AB7A",
+    "url": "https://firebasestorage.googleapis.com:443/v0/b/sticky-20bca.appspot.com/o/game%2Ff505612b-7883-44aa-a6ad-71fd3a761bad%2Fassets%2FD0005201-CC01-46EC-9A9B-FBFB8373AB7A.png?alt=media&token=4be9a131-e508-4d2f-bd7e-983936966092",
+    "description": "No description",
+    "purpose": "Fond ",
+    "type": "LOCAL_IMAGE",
+    "metadata": {
+      "duration": 0,
+      "fileExtension": "image/webp"
+    }
+  },
+  "mjPlpbTrbackground": {
+    "uuid": "2E6B0BA5-12C4-4897-84EF-B059E6300A0D",
+    "url": "https://firebasestorage.googleapis.com:443/v0/b/sticky-20bca.appspot.com/o/game%2Ff505612b-7883-44aa-a6ad-71fd3a761bad%2Fassets%2F2E6B0BA5-12C4-4897-84EF-B059E6300A0D.png?alt=media&token=e3afe729-7c48-46d1-b6e1-cb1f9315a7d5",
+    "description": "No description",
+    "purpose": "Background",
+    "type": "LOCAL_IMAGE",
+    "metadata": {
+      "duration": 0,
+      "fileExtension": "image/webp"
+    }
+  },
+  "rMI2rup_background": {
+    "uuid": "25FCABD1-E638-415A-86A5-8767C6EE6725",
+    "url": "https://firebasestorage.googleapis.com:443/v0/b/sticky-20bca.appspot.com/o/game%2Ff505612b-7883-44aa-a6ad-71fd3a761bad%2Fassets%2F25FCABD1-E638-415A-86A5-8767C6EE6725.png?alt=media&token=af55f01b-a4be-4399-beb9-6843c60f9ff4",
+    "description": "No description",
+    "purpose": "Background ",
+    "type": "LOCAL_IMAGE",
+    "metadata": {
+      "duration": 0,
+      "fileExtension": "image/webp"
+    }
+  },
+  "ROTTEN_TOMATO": {
+    "uuid": "8c6a38c2-66ac-45d9-978d-251b7d4ed2ea",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/8c6a38c2-66ac-45d9-978d-251b7d4ed2ea.png",
+    "description": "A squashed, dark red tomato, top-down view, small green mold patch on the side, pixel art style, bold silhouette, high contrast for visibility against city backgrounds, readable at 50x50 pixels, isolated on transparent background.",
+    "purpose": "Obstacle that reduces player lives and resets combos when touched.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "SLIPPERY_BANANA": {
+    "uuid": "502752ad-eedb-4b40-8720-2e506fda8aa3",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/502752ad-eedb-4b40-8720-2e506fda8aa3.png",
+    "description": "A bright yellow banana peel, top-down view, slightly brown tips, stylized pixel art, bold outlines, high contrast, simplified shapes for clarity at 50x50 pixel scale, isolated on transparent background.",
+    "purpose": "Obstacle that causes the player to lose health or points upon collision.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "0sULD7Bpsecond_background_after_level_up": {
+    "uuid": "610633B5-B0B0-45DF-BD3E-371CA3457325",
+    "url": "https://firebasestorage.googleapis.com:443/v0/b/sticky-20bca.appspot.com/o/game%2Ff505612b-7883-44aa-a6ad-71fd3a761bad%2Fassets%2F610633B5-B0B0-45DF-BD3E-371CA3457325.png?alt=media&token=f9c41ad6-8bce-4ca6-829d-9460f0492dec",
+    "description": "No description",
+    "purpose": "Second background after level up",
+    "type": "LOCAL_IMAGE",
+    "metadata": {
+      "duration": 0,
+      "fileExtension": "image/webp"
+    }
+  },
+  "U1YgNy3lreplace_2nd_background": {
+    "uuid": "E9AFCC76-17BB-4348-8460-BC414E21C7CC",
+    "url": "https://firebasestorage.googleapis.com:443/v0/b/sticky-20bca.appspot.com/o/game%2Ff505612b-7883-44aa-a6ad-71fd3a761bad%2Fassets%2FE9AFCC76-17BB-4348-8460-BC414E21C7CC.png?alt=media&token=74638ece-7781-4cb7-a04d-39ecc03401cf",
+    "description": "No description",
+    "purpose": "Replace 2nd background ",
+    "type": "LOCAL_IMAGE",
+    "metadata": {
+      "duration": 0,
+      "fileExtension": "image/webp"
+    }
+  },
+  "UHO_BLACK_HAIR_NO_BERET": {
+    "uuid": "88e77339-685a-423a-950c-c6924936fd6a",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/88e77339-685a-423a-950c-c6924936fd6a.png",
+    "description": "A joyful street musician, front-facing pose, solid black hair, no headwear. Wearing a blue and white striped marinière shirt and blue jeans, holding a brown folk guitar. Bold silhouette with high contrast, simplified for readability at 80x80 pixels, isolated on transparent background.",
+    "purpose": "The main player character sprite with black hair, used to replace the previous version while maintaining the 'no beret' design.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  },
+  "STAR_ICON": {
+    "uuid": "8d54b740-ba5e-4bb0-a67e-b2e0252f4ee3",
+    "url": "https://storage.googleapis.com/sticky-20bca.appspot.com/sgm/generated/f505612b-7883-44aa-a6ad-71fd3a761bad/8d54b740-ba5e-4bb0-a67e-b2e0252f4ee3.png",
+    "description": "A bright yellow star, simple geometric shape, bold black outline, high visibility against city backgrounds, readable at 64x64 pixels, isolated on transparent background.",
+    "purpose": "A collectible power-up that grants the player temporary invincibility.",
+    "type": "IMAGE",
+    "metadata": {
+      "width": 1024,
+      "height": 1024,
+      "fileExtension": "image/png"
+    }
+  }
+}

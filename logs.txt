@@ -1,0 +1,4 @@
+[LOG][phaser.mjs:19][23:53] %c %c %c %c %c Phaser v3.55.2 (WebGL | Web Audio) %c  background: #ff0000 background: #ffff00 background: #00ff00 background: #00ffff color: #ffffff; background: #000000 background: transparent
+[LOG][MenuScene.js:31][23:53] [DEBUG] Menu hero initialized with black hair asset.
+[LOG][PlayScene.js:30][23:53] [DEBUG-FIX] Player sprite initialized with key: UHO_BLACK_HAIR_NO_BERET
+[LOG][PlayScene.js:203][23:55] [DEBUG] Background transitioned to level-up texture and resized.
