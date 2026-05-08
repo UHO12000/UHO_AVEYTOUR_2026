@@ -90,11 +90,13 @@ export class PlayScene extends Phaser.Scene {
     this.load.audio("gameover", "assets/audio/gameover.mp3");
 
     // NIVEAUX AVEYRON : MAPS + PANNEAUX
-    this.levels = [
-       { mapName: "steradegonde", panelName: "steradegonde" },
+   this.levels = [
+  { mapName: "steradegonde", panelName: "steradegonde" },
   { mapName: "ceyrac", panelName: "ceyrac" },
-  { mapName: "montbazens", panelName: "montbazens" }
-    ];
+  { mapName: "montbazens", panelName: "montbazens" },
+  { mapName: "requista", panelName: "requista" },
+  { mapName: "pontdesalars", panelName: "pontdesalars" }
+];
 
     this.levels.forEach((level, index) => {
       const i = index + 1;
@@ -111,11 +113,13 @@ export class PlayScene extends Phaser.Scene {
     });
 
     // DECORS DE FOND PAR NIVEAU
-    this.decorFiles = [
-       "D1-steradegonde.png",
+  this.decorFiles = [
+  "D1-steradegonde.png",
   "D2-ceyrac.png",
-  "D3-montbazens.png"
-    ];
+  "D3-montbazens.png",
+  "D4-requista.png",
+  "D5-pontdesalars.png"
+];
 
     this.decorFiles.forEach((fileName, index) => {
       this.load.image(
@@ -165,7 +169,7 @@ export class PlayScene extends Phaser.Scene {
     this.panelMode = false;
     this.openingSequenceDone = false;
 
-    this.nextPanelScore = 500;
+    this.nextPanelScore = 250;
     this.nextPanelLevelToSpawn = 2;
     this.pendingPanelLevels = [];
 
@@ -204,9 +208,7 @@ export class PlayScene extends Phaser.Scene {
     ];
 
     this.levelTriggeredBonuses = {
-      13: { texture: "couteau", bonusType: "life", count: 1 },
-      21: { texture: "vin", bonusType: "life", count: 1 },
-      32: { texture: "roquefort", bonusType: "life", count: 1 }
+      4: { texture: "roquefort", bonusType: "life", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1163,7 +1165,7 @@ updateMap(level) {
   this.changeDecor(level);
 
   // 🔥 BOSS au niveau 3
-  if (level === 3) {
+  if (level === 5) {
     this.showBossWarning();
   }
 }
@@ -1176,7 +1178,7 @@ updateMap(level) {
     ) {
       this.pendingPanelLevels.push(this.nextPanelLevelToSpawn);
       this.nextPanelLevelToSpawn += 1;
-      this.nextPanelScore += 500;
+      this.nextPanelScore += 250;
     }
   }
 
