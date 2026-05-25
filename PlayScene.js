@@ -95,7 +95,8 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "ceyrac", panelName: "ceyrac" },
   { mapName: "montbazens", panelName: "montbazens" },
   { mapName: "requista", panelName: "requista" },
-  { mapName: "pontdesalars", panelName: "pontdesalars" }
+  { mapName: "pontdesalars", panelName: "pontdesalars" },
+  { mapName: "marcillac", panelName: "marcillac" }
 ];
 
     this.levels.forEach((level, index) => {
@@ -118,7 +119,8 @@ export class PlayScene extends Phaser.Scene {
   "D2-ceyrac.png",
   "D3-montbazens.png",
   "D4-requista.png",
-  "D5-pontdesalars.png"
+  "D5-pontdesalars.png",
+  "D6-marcillac.png"
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -208,7 +210,8 @@ export class PlayScene extends Phaser.Scene {
     ];
 
     this.levelTriggeredBonuses = {
-      4: { texture: "roquefort", bonusType: "life", count: 1 }
+      4: { texture: "roquefort", bonusType: "life", count: 1 },
+	  6: { texture: "vin", bonusType: "life", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -772,9 +775,9 @@ this.bossText = this.add.text(
       case "couteau":
         return 0.085;
       case "roquefort":
-        return 0.15;
+        return 0.12;
       case "vin":
-        return 0.15;
+        return 0.22;
       case "guitarelec":
       case "guitarelec1":
       case "guitarelec2":
@@ -1055,7 +1058,8 @@ this.bossText = this.add.text(
   }
 
   flushPendingScheduledBonuses() {
-    if (this.electricMode) return;
+	  // on laisse tomber les bonus même en mode électrique
+   // if (this.electricMode) return;
     if (this.panelMode || !this.notesEnabled || this.pendingScheduledBonuses.length === 0) return;
 
     let guard = 0;
@@ -1074,7 +1078,7 @@ this.bossText = this.add.text(
   }
 
   spawnMultiBonus({ texture, bonusType, count = 1 }) {
-    if (this.electricMode) return false;
+    //if (this.electricMode) return false;
 
     const free = this.getFreeLaneIndices(this.minVerticalGap + 20);
     if (free.length < count) return false;
@@ -1097,7 +1101,7 @@ this.bossText = this.add.text(
 
   spawnBonusItem({ texture, bonusType, scale = null, laneIndex = null, panelLinked = false }) {
     if (this.isGameOver) return null;
-    if (this.electricMode) return null;
+    //if (this.electricMode) return null;
 
     const finalLane = laneIndex ?? this.getRandomFreeLane(this.minVerticalGap + 20);
     if (finalLane === null) return null;
@@ -1165,7 +1169,7 @@ updateMap(level) {
   this.changeDecor(level);
 
   // 🔥 BOSS au niveau 3
-  if (level === 5) {
+  if (level === 6) {
     this.showBossWarning();
   }
 }

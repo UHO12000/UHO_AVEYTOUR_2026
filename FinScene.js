@@ -13,6 +13,8 @@ export class FinScene extends Phaser.Scene {
     this.load.image("credits", "assets/panneaux/credits.png");
     this.load.image("aveytour-map", "assets/background/uhomapblanc.png");
 	this.load.image("aligot", "assets/items/aligot.png");
+	this.load.image("roquefort", "assets/items/roquefort.png");
+this.load.image("vin", "assets/items/vin.png");
   }
 
   create(data) {
@@ -81,23 +83,43 @@ export class FinScene extends Phaser.Scene {
       ease: "Back.easeOut"
     });
 	
-	const aligot = this.add.image(
+	// 🧀🍷 ITEMS AVEYRON
+const itemY = scoreText.y + 120;
+
+const roquefort = this.add.image(
+  width / 2 - 180,
+  itemY,
+  "roquefort"
+);
+
+const aligot = this.add.image(
   width / 2,
-  scoreText.y + 100,
+  itemY,
   "aligot"
 );
 
-aligot.setScale(0.18);
-aligot.setDepth(2);
+const vin = this.add.image(
+  width / 2 + 180,
+  itemY,
+  "vin"
+);
+roquefort.setScale(0.12);
+aligot.setScale(0.16);
+vin.setScale(0.20);
 
-this.tweens.add({
-  targets: aligot,
-  y: aligot.y + 10,
-  duration: 800,
-  yoyo: true,
-  repeat: -1,
-  ease: "Sine.easeInOut"
+[roquefort, aligot, vin].forEach((item) => {
+  item.setDepth(2);
+
+  this.tweens.add({
+    targets: item,
+    y: item.y + 10,
+    duration: 800,
+    yoyo: true,
+    repeat: -1,
+    ease: "Sine.easeInOut"
+  });
 });
+
 
     // 📝 TEXTE PRINCIPAL
     const bravoText = `A SUIVRE...\n\nDe nouveaux niveaux arrivent bientôt\navec la tournée UHO 2026 !`;
