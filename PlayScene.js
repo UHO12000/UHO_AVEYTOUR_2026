@@ -97,9 +97,9 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "requista", panelName: "requista" },
   { mapName: "pontdesalars", panelName: "pontdesalars" },
   { mapName: "marcillac", panelName: "marcillac" },
-  { mapName: "arvieu", panelName: "arvieu" }
-  
-];
+  { mapName: "arvieu", panelName: "arvieu" },
+  { mapName: "staffrique", panelName: "staffrique" }
+  ];
 
     this.levels.forEach((level, index) => {
       const i = index + 1;
@@ -124,6 +124,7 @@ export class PlayScene extends Phaser.Scene {
   "D5-pontdesalars.png",
   "D6-marcillac.png",
   "D7-arvieu.png",
+  "D8-staffrique.png",
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -212,7 +213,7 @@ export class PlayScene extends Phaser.Scene {
     this.levelTriggeredBonuses = {
       4: { texture: "roquefort", bonusType: "life", count: 1 },
 	  6: { texture: "vin", bonusType: "life", count: 1 },
-	  7: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  8: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1170,7 +1171,7 @@ updateMap(level) {
   this.changeDecor(level);
 
   // 🔥 BOSS au niveau 3
-  if (level === 7) {
+  if (level === 8) {
     this.showBossWarning();
   }
 }
