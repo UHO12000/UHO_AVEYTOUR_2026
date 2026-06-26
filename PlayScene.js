@@ -98,7 +98,9 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "pontdesalars", panelName: "pontdesalars" },
   { mapName: "marcillac", panelName: "marcillac" },
   { mapName: "arvieu", panelName: "arvieu" },
-  { mapName: "staffrique", panelName: "staffrique" }
+  { mapName: "staffrique", panelName: "staffrique" },
+  { mapName: "compolibat", panelName: "compolibat" },
+  { mapName: "sallescuran", panelName: "sallescuran" }
   ];
 
     this.levels.forEach((level, index) => {
@@ -125,6 +127,8 @@ export class PlayScene extends Phaser.Scene {
   "D6-marcillac.png",
   "D7-arvieu.png",
   "D8-staffrique.png",
+   "D9-compolibat.png",
+  "D10-sallescuran.png",
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -175,7 +179,7 @@ export class PlayScene extends Phaser.Scene {
     this.panelMode = false;
     this.openingSequenceDone = false;
 
-    this.nextPanelScore = 200;
+    this.nextPanelScore = 150;
     this.nextPanelLevelToSpawn = 2;
     this.pendingPanelLevels = [];
 
@@ -197,23 +201,14 @@ export class PlayScene extends Phaser.Scene {
 
     this.demoEvents = [];
 
-    this.scheduledBonuses = [
-      { score: 460, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 860, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 1260, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 1660, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 2060, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 2460, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 2860, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 3060, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 3460, texture: "aligot", bonusType: "life", count: 1 },
-      { score: 3600, texture: "guitarelec", bonusType: "electric", count: 1 }
-    ];
+    this.scheduledBonuses = [];
 
     this.levelTriggeredBonuses = {
+	  2: { texture: "aligot", bonusType: "life", count: 1 },
       4: { texture: "roquefort", bonusType: "life", count: 1 },
 	  6: { texture: "vin", bonusType: "life", count: 1 },
-	  8: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  8: { texture: "aligot", bonusType: "life", count: 1 },
+	  10: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1170,8 +1165,8 @@ updateMap(level) {
   this.aveyronIcon.setTexture(`map-niv${level}`);
   this.changeDecor(level);
 
-  // 🔥 BOSS au niveau 3
-  if (level === 8) {
+  // 🔥 BOSS au niveau 10
+  if (level === 10) {
     this.showBossWarning();
   }
 }
@@ -1184,7 +1179,7 @@ updateMap(level) {
     ) {
       this.pendingPanelLevels.push(this.nextPanelLevelToSpawn);
       this.nextPanelLevelToSpawn += 1;
-      this.nextPanelScore += 200;
+      this.nextPanelScore += 150;
     }
   }
 
