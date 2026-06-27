@@ -80,7 +80,7 @@ export class PlayScene extends Phaser.Scene {
     this.load.image("aligot", "assets/items/aligot.png");
     this.load.image("roquefort", "assets/items/roquefort.png");
     this.load.image("vin", "assets/items/vin.png");
-    this.load.image("couteau", "assets/items/couteau.png");
+    this.load.image("moules", "assets/items/moules.png");
     this.load.image("guitarelec", "assets/items/guitarelec.png");
     this.load.image("guitarelec1", "assets/items/guitarelec1.png");
     this.load.image("guitarelec2", "assets/items/guitarelec2.png");
@@ -100,7 +100,8 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "arvieu", panelName: "arvieu" },
   { mapName: "staffrique", panelName: "staffrique" },
   { mapName: "compolibat", panelName: "compolibat" },
-  { mapName: "sallescuran", panelName: "sallescuran" }
+  { mapName: "sallescuran", panelName: "sallescuran" },
+  { mapName: "boissepenchot", panelName: "boissepenchot" }
   ];
 
     this.levels.forEach((level, index) => {
@@ -129,6 +130,7 @@ export class PlayScene extends Phaser.Scene {
   "D8-staffrique.png",
    "D9-compolibat.png",
   "D10-sallescuran.png",
+  "D11-boissepenchot.png",
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -207,8 +209,10 @@ export class PlayScene extends Phaser.Scene {
 	  2: { texture: "aligot", bonusType: "life", count: 1 },
       4: { texture: "roquefort", bonusType: "life", count: 1 },
 	  6: { texture: "vin", bonusType: "life", count: 1 },
-	  8: { texture: "aligot", bonusType: "life", count: 1 },
-	  10: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  7: { texture: "moules", bonusType: "life", count: 1 },
+	  9: { texture: "aligot", bonusType: "life", count: 1 },
+	  11: { texture: "moules", bonusType: "life", count: 1 },
+	  11: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -769,6 +773,8 @@ this.bossText = this.add.text(
     switch (texture) {
       case "aligot":
         return 0.16;
+		case "moules":
+        return 0.16;
       case "couteau":
         return 0.085;
       case "roquefort":
@@ -1165,8 +1171,8 @@ updateMap(level) {
   this.aveyronIcon.setTexture(`map-niv${level}`);
   this.changeDecor(level);
 
-  // 🔥 BOSS au niveau 10
-  if (level === 10) {
+  // 🔥 BOSS au niveau 11
+  if (level === 11) {
     this.showBossWarning();
   }
 }
