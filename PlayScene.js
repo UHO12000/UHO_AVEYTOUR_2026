@@ -227,7 +227,7 @@ export class PlayScene extends Phaser.Scene {
 	  7: { texture: "moules", bonusType: "life", count: 1 },
 	  9: { texture: "aligot", bonusType: "life", count: 1 },
 	  11: { texture: "moules", bonusType: "life", count: 1 },
-	  12: { texture: "guitarelec", bonusType: "life", count: 1 },
+	  12: { texture: "guitarelec", bonusType: "electric", count: 1 },
 	  14: { texture: "aligot", bonusType: "life", count: 1 },
 	  17: { texture: "aligot", bonusType: "life", count: 1 },
 	  18: { texture: "guitarelec", bonusType: "electric", count: 1 }
