@@ -108,7 +108,9 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "galgan", panelName: "galgan" },
   { mapName: "stcomedolt", panelName: "stcomedolt" },
   { mapName: "stchely", panelName: "stchely" },
-  { mapName: "letheron", panelName: "letheron" }
+  { mapName: "letheron", panelName: "letheron" },
+  { mapName: "laissac", panelName: "laissac" },
+  { mapName: "lavernhe", panelName: "lavernhe" }
   ];
 
     this.levels.forEach((level, index) => {
@@ -144,7 +146,9 @@ export class PlayScene extends Phaser.Scene {
   "D15-galgan.png",
   "D16-stcomedolt.png",
   "D17-stchely.png" ,
-  "D18-letheron.png"
+  "D18-letheron.png",
+  "D19-laissac.png",
+  "D20-lavernhe.png"
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -229,8 +233,9 @@ export class PlayScene extends Phaser.Scene {
 	  11: { texture: "moules", bonusType: "life", count: 1 },
 	  12: { texture: "guitarelec", bonusType: "electric", count: 1 },
 	  14: { texture: "aligot", bonusType: "life", count: 1 },
-	  17: { texture: "aligot", bonusType: "life", count: 1 },
-	  18: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  18: { texture: "aligot", bonusType: "life", count: 1 },
+	  20: { texture: "aligot", bonusType: "life", count: 1 },
+	  20: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1190,7 +1195,7 @@ updateMap(level) {
   this.changeDecor(level);
 
   // 🔥 BOSS au niveau 18
-  if (level === 18) {
+  if (level === 20) {
     this.showBossWarning();
   }
 }
