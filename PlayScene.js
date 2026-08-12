@@ -110,7 +110,8 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "stchely", panelName: "stchely" },
   { mapName: "letheron", panelName: "letheron" },
   { mapName: "laissac", panelName: "laissac" },
-  { mapName: "lavernhe", panelName: "lavernhe" }
+  { mapName: "lavernhe", panelName: "lavernhe" },
+  { mapName: "cransac", panelName: "cransac" }
   ];
 
     this.levels.forEach((level, index) => {
@@ -148,7 +149,8 @@ export class PlayScene extends Phaser.Scene {
   "D17-stchely.png" ,
   "D18-letheron.png",
   "D19-laissac.png",
-  "D20-lavernhe.png"
+  "D20-lavernhe.png",
+  "D21-cransac.png"
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -235,7 +237,7 @@ export class PlayScene extends Phaser.Scene {
 	  14: { texture: "aligot", bonusType: "life", count: 1 },
 	  18: { texture: "aligot", bonusType: "life", count: 1 },
 	  20: { texture: "aligot", bonusType: "life", count: 1 },
-	  20: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  21: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1194,8 +1196,8 @@ updateMap(level) {
   this.aveyronIcon.setTexture(`map-niv${level}`);
   this.changeDecor(level);
 
-  // 🔥 BOSS au niveau 18
-  if (level === 20) {
+  // 🔥 BOSS au niveau 21
+  if (level === 21 {
     this.showBossWarning();
   }
 }
