@@ -1197,7 +1197,7 @@ updateMap(level) {
   this.changeDecor(level);
 
   // 🔥 BOSS au niveau 21
-  if (level === 21 {
+  if (level === 21) {
     this.showBossWarning();
   }
 }
