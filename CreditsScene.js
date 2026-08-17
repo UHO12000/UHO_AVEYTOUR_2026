@@ -1,4 +1,5 @@
 import { AudioManager } from "./AudioManager.js";
+
 export default class CreditsScene extends Phaser.Scene {
   constructor() {
     super("CreditsScene");
@@ -6,6 +7,14 @@ export default class CreditsScene extends Phaser.Scene {
 
   audioManager() {
     return AudioManager.get(this.game).attachScene(this);
+  }
+
+  preload() {
+    // Chargement des 4 icônes sociales
+    this.load.image("icon-facebook", "assets/Fb.png");
+    this.load.image("icon-instagram", "assets/Insta.png");
+    this.load.image("icon-tiktok", "assets/Tt.png");
+    this.load.image("icon-youtube", "assets/Yt.png");
   }
 
   create() {
@@ -17,22 +26,26 @@ export default class CreditsScene extends Phaser.Scene {
     map.setScale(0.58);
     map.setDepth(1);
 
-   const creditsPanel = this.add.image(width / 2, height * 0.46, "credits");
-creditsPanel.setScale(0.22);
-creditsPanel.setDepth(2);
-    
+    const creditsPanel = this.add.image(
+      width / 2,
+      height * 0.46,
+      "credits"
+    );
+
+    creditsPanel.setScale(0.22);
+    creditsPanel.setDepth(2);
 
     const creditsText =
-`CREATION, MUSIQUE
-ET DEVELOPPEMENT :
-UHO - UN HOMME ORCHESTRE
+`Création, musique et développement:
+UHO - Un Homme Orchestre
 
-TOUTES LES PHOTOS ET VISUELS
-SONT DES CREATIONS ORIGINALES
-REALISEES PAR UHO EN AVEYRON.
+Toutes les photos et les visuels sont des créations
+ originales réalisées par UHO en Aveyron.
 
-Les nouveaux niveaux arriveront
-avec la suite de la tournée 2026!`;
+Reviens jouer pour découvrir de nouveaux niveaux!
+Soutiens UHO sur les réseaux :
+
+`;
 
     this.add.text(width / 2, height * 0.67, creditsText, {
       fontFamily: "Courier",
@@ -43,43 +56,140 @@ avec la suite de la tournée 2026!`;
       strokeThickness: 5,
       align: "center",
       lineSpacing: 10,
-      wordWrap: { width: width - 40 }
+      wordWrap: {
+        width: width - 40
+      }
     }).setOrigin(0.5);
 
-    const linksY = height * 0.84;
-    this.createInlineLink(width * 0.20, linksY, "INSTAGRAM", "https://www.instagram.com/uho12000/");
-    this.createInlineLink(width * 0.43, linksY, "FACEBOOK", "https://www.facebook.com/uHo12000");
-    this.createInlineLink(width * 0.63, linksY, "TIKTOK", "https://www.tiktok.com/@unhommeorchestre12");
-    this.createInlineLink(width * 0.83, linksY, "YOUTUBE", "https://www.youtube.com/@unHommeorchestre");
+    // --------------------------------------------------
+    // RESEAUX SOCIAUX
+    // --------------------------------------------------
 
-    const back = this.add.text(width / 2, height * 0.90, "RETOUR MENU", {
-  fontFamily: "Courier",
-  fontSize: "22px",
-  color: "#ffffff",
-  fontStyle: "bold",
-  stroke: "#081a33",
-  strokeThickness: 6
-}).setOrigin(0.5);
+    const linksY = height * 0.81;
 
-this.tweens.add({
-  targets: back,
-  alpha: { from: 1, to: 0.3 },
-  duration: 600,
-  yoyo: true,
-  repeat: -1,
-  ease: "Sine.easeInOut"
-});
+    // Instagram
+    this.createSocialIcon(
+      width * 0.20,
+      linksY,
+      "icon-instagram",
+      "https://www.instagram.com/uho12000/"
+    );
+
+    // Facebook
+    this.createSocialIcon(
+      width * 0.43,
+      linksY,
+      "icon-facebook",
+      "https://www.facebook.com/uHo12000"
+    );
+
+    // TikTok
+    this.createSocialIcon(
+      width * 0.63,
+      linksY,
+      "icon-tiktok",
+      "https://www.tiktok.com/@unhommeorchestre12"
+    );
+
+    // YouTube
+    this.createSocialIcon(
+      width * 0.83,
+      linksY,
+      "icon-youtube",
+      "https://www.youtube.com/@unHommeorchestre"
+    );
+
+    // --------------------------------------------------
+    // RETOUR MENU
+    // --------------------------------------------------
+
+    const back = this.add.text(
+      width / 2,
+      height * 0.87,
+      "RETOUR MENU",
+      {
+        fontFamily: "Courier",
+        fontSize: "22px",
+        color: "#ffffff",
+        fontStyle: "bold",
+        stroke: "#081a33",
+        strokeThickness: 6
+      }
+    ).setOrigin(0.5);
+
+    this.tweens.add({
+      targets: back,
+      alpha: {
+        from: 1,
+        to: 0.3
+      },
+      duration: 600,
+      yoyo: true,
+      repeat: -1,
+      ease: "Sine.easeInOut"
+    });
 
     back.setDepth(5);
-    back.setInteractive({ useHandCursor: true });
+
+    back.setInteractive({
+      useHandCursor: true
+    });
 
     back.on("pointerdown", () => {
       this.scene.start("MenuScene");
     });
 
-    back.on("pointerover", () => back.setScale(1.1));
-    back.on("pointerout", () => back.setScale(1));
+    back.on("pointerover", () => {
+      back.setScale(1.1);
+    });
+
+    back.on("pointerout", () => {
+      back.setScale(1);
+    });
   }
+
+  // --------------------------------------------------
+  // ICONE RESEAU SOCIAL
+  // --------------------------------------------------
+
+  createSocialIcon(x, y, key, url) {
+    const icon = this.add.image(x, y, key);
+
+    // Taille légèrement agrandie pour les 4 icônes
+    icon.setDisplaySize(82, 82);
+
+    icon.setDepth(5);
+
+    icon.setInteractive({
+      useHandCursor: true
+    });
+
+    // Clic : ouverture du réseau social
+    icon.on("pointerdown", () => {
+      try {
+        const opened = window.open(
+          url,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+        if (!opened) {
+          window.location.href = url;
+        }
+
+      } catch (e) {
+        window.location.href = url;
+      }
+    });
+
+    // Pas de changement de taille au survol/clic :
+    // l'icône reste toujours à sa taille normale.
+  }
+
+  // --------------------------------------------------
+  // ANCIEN SYSTEME DE LIENS TEXTE
+  // Conservé au cas où tu souhaites le réutiliser.
+  // --------------------------------------------------
 
   createInlineLink(x, y, label, url) {
     const txt = this.add.text(x, y, label, {
@@ -93,15 +203,33 @@ this.tweens.add({
     }).setOrigin(0.5);
 
     txt.setDepth(5);
-    txt.setInteractive({ useHandCursor: true });
 
-    const underline = this.add.rectangle(x, y + 14, txt.width + 6, 2, 0xffffff).setOrigin(0.5);
+    txt.setInteractive({
+      useHandCursor: true
+    });
+
+    const underline = this.add.rectangle(
+      x,
+      y + 14,
+      txt.width + 6,
+      2,
+      0xffffff
+    ).setOrigin(0.5);
+
     underline.setDepth(5);
 
     txt.on("pointerdown", () => {
       try {
-        const opened = window.open(url, "_blank", "noopener,noreferrer");
-        if (!opened) window.location.href = url;
+        const opened = window.open(
+          url,
+          "_blank",
+          "noopener,noreferrer"
+        );
+
+        if (!opened) {
+          window.location.href = url;
+        }
+
       } catch (e) {
         window.location.href = url;
       }
@@ -110,6 +238,7 @@ this.tweens.add({
     txt.on("pointerover", () => {
       txt.setColor("#ffe066");
       txt.setScale(1.05);
+
       underline.setFillStyle(0xffe066);
       underline.setScale(1.05, 1);
     });
@@ -117,6 +246,7 @@ this.tweens.add({
     txt.on("pointerout", () => {
       txt.setColor("#ffffff");
       txt.setScale(1);
+
       underline.setFillStyle(0xffffff);
       underline.setScale(1, 1);
     });
