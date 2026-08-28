@@ -11,7 +11,10 @@ export default class MenuScene extends Phaser.Scene {
   create() {
     const { width, height } = this.scale;
 
-    this.cameras.main.setBackgroundColor("#081a33");
+    this.add.image(width / 2, height, "fond-accueil")
+  .setOrigin(0.5, 1)
+  .setDisplaySize(width, height)
+  .setDepth(0);
 
     this.audioManager().tryAutoStartMenuMusic();
 
