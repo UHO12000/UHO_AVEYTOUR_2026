@@ -81,6 +81,10 @@ export class PlayScene extends Phaser.Scene {
     this.load.image("roquefort", "assets/items/roquefort.png");
     this.load.image("vin", "assets/items/vin.png");
     this.load.image("moules", "assets/items/moules.png");
+	this.load.image("viande", "assets/items/viande.png");
+	this.load.image("soupe", "assets/items/soupe.png");
+	this.load.image("farcous", "assets/items/farcous.png");
+	this.load.image("charcut", "assets/items/charcut.png");
     this.load.image("guitarelec", "assets/items/guitarelec.png");
     this.load.image("guitarelec1", "assets/items/guitarelec1.png");
     this.load.image("guitarelec2", "assets/items/guitarelec2.png");
@@ -234,7 +238,8 @@ export class PlayScene extends Phaser.Scene {
     this.scheduledBonuses = [];
 
     this.levelTriggeredBonuses = {
-	  2: { texture: "aligot", bonusType: "life", count: 1 },
+	  1: { texture: "aligot", bonusType: "life", count: 1 },
+	  2: { texture: "charcut", bonusType: "life", count: 1 },
       4: { texture: "roquefort", bonusType: "life", count: 1 },
 	  5: { texture: "guitarelec", bonusType: "electric", count: 1 },
 	  6: { texture: "vin", bonusType: "life", count: 1 },
@@ -242,12 +247,18 @@ export class PlayScene extends Phaser.Scene {
 	  9: { texture: "aligot", bonusType: "life", count: 1 },
 	  11: { texture: "moules", bonusType: "life", count: 1 },
 	  12: { texture: "guitarelec", bonusType: "electric", count: 1 },
-	  14: { texture: "aligot", bonusType: "life", count: 1 },
+	  13: { texture: "aligot", bonusType: "life", count: 1 },
+	  14: { texture: "farcous", bonusType: "life", count: 1 },
+	  15: { texture: "soupe", bonusType: "life", count: 1 },
 	  16: { texture: "aligot", bonusType: "life", count: 1 },
-	  18: { texture: "aligot", bonusType: "life", count: 1 },
+	  16: { texture: "viande", bonusType: "life", count: 1 },
+	  17: { texture: "aligot", bonusType: "life", count: 1 },
+	  17: { texture: "viande", bonusType: "life", count: 1 },
+	  18: { texture: "charcut", bonusType: "life", count: 1 },
 	  20: { texture: "aligot", bonusType: "life", count: 1 },
-	  22: { texture: "aligot", bonusType: "aligot", count: 1 },
-	  24: { texture: "aligot", bonusType: "aligot", count: 1 },
+	  21: { texture: "viande", bonusType: "life", count: 1 },
+	  23: { texture: "charcut", bonusType: "life", count: 1 },
+	  24: { texture: "aligot", bonusType: "life", count: 1 },
 	  25: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
