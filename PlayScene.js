@@ -112,7 +112,10 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "laissac", panelName: "laissac" },
   { mapName: "lavernhe", panelName: "lavernhe" },
   { mapName: "cransac", panelName: "cransac" },
-  { mapName: "millau", panelName: "millau" }
+  { mapName: "millau", panelName: "millau" },
+  { mapName: "privezac", panelName: "privezac" },
+  { mapName: "stfelix", panelName: "stfelix" },
+  { mapName: "peyrusse", panelName: "peyrusse" }
   ];
 
     this.levels.forEach((level, index) => {
@@ -139,7 +142,7 @@ export class PlayScene extends Phaser.Scene {
   "D6-marcillac.png",
   "D7-arvieu.png",
   "D8-staffrique.png",
-   "D9-compolibat.png",
+  "D9-compolibat.png",
   "D10-sallescuran.png",
   "D11-boissepenchot.png",
   "D12-severac.png",
@@ -152,7 +155,10 @@ export class PlayScene extends Phaser.Scene {
   "D19-laissac.png",
   "D20-lavernhe.png",
   "D21-cransac.png",
-  "D22-millau.png"
+  "D22-millau.png",
+  "D23-privezac.png",
+  "D24-stfelix.png",
+  "D25-peyrusse.png"
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -240,7 +246,9 @@ export class PlayScene extends Phaser.Scene {
 	  16: { texture: "aligot", bonusType: "life", count: 1 },
 	  18: { texture: "aligot", bonusType: "life", count: 1 },
 	  20: { texture: "aligot", bonusType: "life", count: 1 },
-	  22: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  22: { texture: "aligot", bonusType: "aligot", count: 1 },
+	  24: { texture: "aligot", bonusType: "aligot", count: 1 },
+	  25: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1199,8 +1207,8 @@ updateMap(level) {
   this.aveyronIcon.setTexture(`map-niv${level}`);
   this.changeDecor(level);
 
-  // 🔥 BOSS au niveau 22
-  if (level === 22) {
+  // 🔥 BOSS au niveau 25
+  if (level === 25) {
     this.showBossWarning();
   }
 }
