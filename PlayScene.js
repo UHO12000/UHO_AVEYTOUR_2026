@@ -85,6 +85,7 @@ export class PlayScene extends Phaser.Scene {
 	this.load.image("soupe", "assets/items/soupe.png");
 	this.load.image("farcous", "assets/items/farcous.png");
 	this.load.image("charcut", "assets/items/charcut.png");
+	this.load.image("gateau", "assets/items/gateau.png");
     this.load.image("guitarelec", "assets/items/guitarelec.png");
     this.load.image("guitarelec1", "assets/items/guitarelec1.png");
     this.load.image("guitarelec2", "assets/items/guitarelec2.png");
@@ -119,7 +120,8 @@ export class PlayScene extends Phaser.Scene {
   { mapName: "millau", panelName: "millau" },
   { mapName: "privezac", panelName: "privezac" },
   { mapName: "stfelix", panelName: "stfelix" },
-  { mapName: "peyrusse", panelName: "peyrusse" }
+  { mapName: "peyrusse", panelName: "peyrusse" },
+  { mapName: "combelles", panelName: "combelles" }
   ];
 
     this.levels.forEach((level, index) => {
@@ -162,7 +164,8 @@ export class PlayScene extends Phaser.Scene {
   "D22-millau.png",
   "D23-privezac.png",
   "D24-stfelix.png",
-  "D25-peyrusse.png"
+  "D25-peyrusse.png",
+  "D26-combelles.png"
 ];
 
     this.decorFiles.forEach((fileName, index) => {
@@ -257,9 +260,12 @@ export class PlayScene extends Phaser.Scene {
 	  18: { texture: "charcut", bonusType: "life", count: 1 },
 	  20: { texture: "aligot", bonusType: "life", count: 1 },
 	  21: { texture: "viande", bonusType: "life", count: 1 },
+	  22: { texture: "aligot", bonusType: "life", count: 1 },
 	  23: { texture: "charcut", bonusType: "life", count: 1 },
 	  24: { texture: "aligot", bonusType: "life", count: 1 },
-	  25: { texture: "guitarelec", bonusType: "electric", count: 1 }
+	  25: { texture: "viande", bonusType: "life", count: 1 },
+	  26: { texture: "gateau", bonusType: "life", count: 1 },
+	  26: { texture: "guitarelec", bonusType: "electric", count: 1 }
     };
 
     this.triggeredLevelBonuses = new Set();
@@ -1218,8 +1224,8 @@ updateMap(level) {
   this.aveyronIcon.setTexture(`map-niv${level}`);
   this.changeDecor(level);
 
-  // 🔥 BOSS au niveau 25
-  if (level === 25) {
+  // 🔥 BOSS au niveau 26
+  if (level === 26) {
     this.showBossWarning();
   }
 }
