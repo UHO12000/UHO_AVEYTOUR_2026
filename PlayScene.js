@@ -5,176 +5,71 @@ export class PlayScene extends Phaser.Scene {
   }
 
   constructor() {
-    super({ key: "PlayScene" });
-  }
+  super({ key: "PlayScene" });
 
-  preload() {
-    const barWidth = Math.min(this.scale.width * 0.72, 420);
-    const barHeight = 22;
-    const barX = (this.scale.width - barWidth) / 2;
-    const barY = this.scale.height / 2 - barHeight / 2;
-
-    this.cameras.main.setBackgroundColor("#ffffff");
-
-    const box = this.add.graphics();
-    const fill = this.add.graphics();
-
-    box.lineStyle(4, 0x0b2a52, 1);
-    box.strokeRoundedRect(barX, barY, barWidth, barHeight, 8);
-
-    const loadingText = this.add.text(
-      this.scale.width / 2,
-      barY - 34,
-      "CHARGEMENT...",
-      {
-        fontSize: "20px",
-        color: "#0b2a52",
-        fontStyle: "bold"
-      }
-    ).setOrigin(0.5);
-
-    this.load.on("progress", (value) => {
-      fill.clear();
-      fill.fillStyle(0x0b2a52, 1);
-      fill.fillRoundedRect(
-        barX + 4,
-        barY + 4,
-        Math.max(0, (barWidth - 8) * value),
-        barHeight - 8,
-        5
-      );
-    });
-
-    this.load.once("complete", () => {
-      fill.destroy();
-      box.destroy();
-      loadingText.destroy();
-    });
-
-    // PLAYER / HUD
-    this.load.image("uho", "assets/player/uho.png");
-    this.load.image("uhoelec1", "assets/player/uho-elec1.png");
-    this.load.image("uhoelec2", "assets/player/uho-elec2.png");
-    this.load.image("uhoprotect", "assets/player/uho-protect.png");
-    this.load.image("coeur", "assets/vies/coeur.png");
-
-    // PADS TACTILES
-    this.load.image("padU", "assets/pads/padU.png");
-    this.load.image("padO", "assets/pads/padO.png");
-    this.load.image("pouceU", "assets/pads/pouceU.png");
-    this.load.image("pouceO", "assets/pads/pouceO.png");
-
-    // NOTES
-    this.load.image("rouge", "assets/notes/rouge.png");
-    this.load.image("jaune", "assets/notes/jaune.png");
-    this.load.image("bleue", "assets/notes/bleue.png");
-    this.load.image("verte", "assets/notes/verte.png");
-
-    // FAUSSES NOTES
-    this.load.image("fn-rouge", "assets/fausses-notes/fn-rouge.png");
-    this.load.image("fn-jaune", "assets/fausses-notes/fn-jaune.png");
-    this.load.image("fn-verte", "assets/fausses-notes/fn-verte.png");
-    this.load.image("fn-bleue", "assets/fausses-notes/fn-bleue.png");
-
-    // ITEMS / BONUS
-    this.load.image("aligot", "assets/items/aligot.png");
-    this.load.image("roquefort", "assets/items/roquefort.png");
-    this.load.image("vin", "assets/items/vin.png");
-    this.load.image("moules", "assets/items/moules.png");
-	this.load.image("viande", "assets/items/viande.png");
-	this.load.image("soupe", "assets/items/soupe.png");
-	this.load.image("farcous", "assets/items/farcous.png");
-	this.load.image("charcut", "assets/items/charcut.png");
-	this.load.image("gateau", "assets/items/gateau.png");
-    this.load.image("guitarelec", "assets/items/guitarelec.png");
-    this.load.image("guitarelec1", "assets/items/guitarelec1.png");
-    this.load.image("guitarelec2", "assets/items/guitarelec2.png");
-
-    this.load.audio("uho-melodie", "assets/audio/uho-melodie.mp3");
-    this.load.audio("uho-solo", "assets/audio/uho-solo.mp3");
-    this.load.audio("gameover", "assets/audio/gameover.mp3");
-
-    // NIVEAUX AVEYRON : MAPS + PANNEAUX
-   this.levels = [
-  { mapName: "steradegonde", panelName: "steradegonde" },
-  { mapName: "ceyrac", panelName: "ceyrac" },
-  { mapName: "montbazens", panelName: "montbazens" },
-  { mapName: "requista", panelName: "requista" },
-  { mapName: "pontdesalars", panelName: "pontdesalars" },
-  { mapName: "marcillac", panelName: "marcillac" },
-  { mapName: "arvieu", panelName: "arvieu" },
-  { mapName: "staffrique", panelName: "staffrique" },
-  { mapName: "compolibat", panelName: "compolibat" },
-  { mapName: "sallescuran", panelName: "sallescuran" },
-  { mapName: "boissepenchot", panelName: "boissepenchot" },
-  { mapName: "severac", panelName: "severac" },
-  { mapName: "monastere", panelName: "monastere" },
-  { mapName: "tremouilles", panelName: "tremouilles" },
-  { mapName: "galgan", panelName: "galgan" },
-  { mapName: "stcomedolt", panelName: "stcomedolt" },
-  { mapName: "stchely", panelName: "stchely" },
-  { mapName: "letheron", panelName: "letheron" },
-  { mapName: "laissac", panelName: "laissac" },
-  { mapName: "lavernhe", panelName: "lavernhe" },
-  { mapName: "cransac", panelName: "cransac" },
-  { mapName: "millau", panelName: "millau" },
-  { mapName: "privezac", panelName: "privezac" },
-  { mapName: "stfelix", panelName: "stfelix" },
-  { mapName: "peyrusse", panelName: "peyrusse" },
-  { mapName: "combelles", panelName: "combelles" }
+  // Données des 26 niveaux
+  this.levels = [
+    { mapName: "steradegonde", panelName: "steradegonde" },
+    { mapName: "ceyrac", panelName: "ceyrac" },
+    { mapName: "montbazens", panelName: "montbazens" },
+    { mapName: "requista", panelName: "requista" },
+    { mapName: "pontdesalars", panelName: "pontdesalars" },
+    { mapName: "marcillac", panelName: "marcillac" },
+    { mapName: "arvieu", panelName: "arvieu" },
+    { mapName: "staffrique", panelName: "staffrique" },
+    { mapName: "compolibat", panelName: "compolibat" },
+    { mapName: "sallescuran", panelName: "sallescuran" },
+    { mapName: "boissepenchot", panelName: "boissepenchot" },
+    { mapName: "severac", panelName: "severac" },
+    { mapName: "monastere", panelName: "monastere" },
+    { mapName: "tremouilles", panelName: "tremouilles" },
+    { mapName: "galgan", panelName: "galgan" },
+    { mapName: "stcomedolt", panelName: "stcomedolt" },
+    { mapName: "stchely", panelName: "stchely" },
+    { mapName: "letheron", panelName: "letheron" },
+    { mapName: "laissac", panelName: "laissac" },
+    { mapName: "lavernhe", panelName: "lavernhe" },
+    { mapName: "cransac", panelName: "cransac" },
+    { mapName: "millau", panelName: "millau" },
+    { mapName: "privezac", panelName: "privezac" },
+    { mapName: "stfelix", panelName: "stfelix" },
+    { mapName: "peyrusse", panelName: "peyrusse" },
+    { mapName: "combelles", panelName: "combelles" }
   ];
 
-    this.levels.forEach((level, index) => {
-      const i = index + 1;
-
-      this.load.image(
-        `map-niv${i}`,
-        `assets/background/aveyron/N${i}-${level.mapName}.png`
-      );
-
-      this.load.image(
-        `panel-niv${i}`,
-        `assets/panneaux/P${i}-${level.panelName}.png`
-      );
-    });
-
-    // DECORS DE FOND PAR NIVEAU
+  // Décors des 26 niveaux
   this.decorFiles = [
-  "D1-steradegonde.png",
-  "D2-ceyrac.png",
-  "D3-montbazens.png",
-  "D4-requista.png",
-  "D5-pontdesalars.png",
-  "D6-marcillac.png",
-  "D7-arvieu.png",
-  "D8-staffrique.png",
-  "D9-compolibat.png",
-  "D10-sallescuran.png",
-  "D11-boissepenchot.png",
-  "D12-severac.png",
-  "D13-monastere.png",
-  "D14-tremouilles.png",
-  "D15-galgan.png",
-  "D16-stcomedolt.png",
-  "D17-stchely.png" ,
-  "D18-letheron.png",
-  "D19-laissac.png",
-  "D20-lavernhe.png",
-  "D21-cransac.png",
-  "D22-millau.png",
-  "D23-privezac.png",
-  "D24-stfelix.png",
-  "D25-peyrusse.png",
-  "D26-combelles.png"
-];
+    "D1-steradegonde.png",
+    "D2-ceyrac.png",
+    "D3-montbazens.png",
+    "D4-requista.png",
+    "D5-pontdesalars.png",
+    "D6-marcillac.png",
+    "D7-arvieu.png",
+    "D8-staffrique.png",
+    "D9-compolibat.png",
+    "D10-sallescuran.png",
+    "D11-boissepenchot.png",
+    "D12-severac.png",
+    "D13-monastere.png",
+    "D14-tremouilles.png",
+    "D15-galgan.png",
+    "D16-stcomedolt.png",
+    "D17-stchely.png",
+    "D18-letheron.png",
+    "D19-laissac.png",
+    "D20-lavernhe.png",
+    "D21-cransac.png",
+    "D22-millau.png",
+    "D23-privezac.png",
+    "D24-stfelix.png",
+    "D25-peyrusse.png",
+    "D26-combelles.png"
+  ];
+}
 
-    this.decorFiles.forEach((fileName, index) => {
-      this.load.image(
-        `decor-niv${index + 1}`,
-        `assets/background/decors/${fileName}`
-      );
-    });
-  }
+ preload() {
+}
 
   create() {
     this.UHO_SPEED = 7;

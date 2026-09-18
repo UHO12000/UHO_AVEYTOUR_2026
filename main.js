@@ -1,4 +1,5 @@
 import { AudioManager } from "./AudioManager.js";
+import  LoadingScene  from "./LoadingScene.js";
 import { BootScene } from "./BootScene.js";
 import MenuScene from "./MenuScene.js";
 import { PlayScene } from "./PlayScene.js";
@@ -32,7 +33,7 @@ const config = {
     }
   },
 
-  scene: [BootScene, MenuScene, PlayScene, GameOverScene, CreditsScene, FinScene]
+  scene: [BootScene, MenuScene, LoadingScene, PlayScene, GameOverScene, CreditsScene, FinScene]
 };
 
 const game = new Phaser.Game(config);

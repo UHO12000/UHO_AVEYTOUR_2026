@@ -22,9 +22,22 @@ export default class CreditsScene extends Phaser.Scene {
 
     this.cameras.main.setBackgroundColor("#081a33");
 
-    const map = this.add.image(width / 2, height * 0.25, "aveytour-map");
+    // --------------------------------------------------
+    // CARTE AVEYRON
+    // --------------------------------------------------
+
+    const map = this.add.image(
+      width / 2,
+      height * 0.25,
+      "aveytour-map"
+    );
+
     map.setScale(0.58);
     map.setDepth(1);
+
+    // --------------------------------------------------
+    // PANNEAU CREDITS
+    // --------------------------------------------------
 
     const creditsPanel = this.add.image(
       width / 2,
@@ -35,37 +48,88 @@ export default class CreditsScene extends Phaser.Scene {
     creditsPanel.setScale(0.22);
     creditsPanel.setDepth(2);
 
-    const creditsText =
-`Création, musique et développement:
-UHO - Un Homme Orchestre
+    // --------------------------------------------------
+    // CREATION / MUSIQUE / DEVELOPPEMENT
+    // --------------------------------------------------
 
-Toutes les photos et les visuels sont des créations
- originales réalisées par UHO en Aveyron.
-
-Reviens jouer pour découvrir de nouveaux niveaux!
-Soutiens UHO sur les réseaux :
-
-`;
-
-    this.add.text(width / 2, height * 0.67, creditsText, {
-      fontFamily: "Courier",
-      fontSize: "22px",
-      color: "#ffffff",
-      fontStyle: "bold",
-      stroke: "#081a33",
-      strokeThickness: 5,
-      align: "center",
-      lineSpacing: 10,
-      wordWrap: {
-        width: width - 40
+    const creditsText = this.add.text(
+      width / 2,
+      height * 0.62,
+      `Création, musique et développement
+UHO – Un Homme Orchestre`,
+      {
+        fontFamily: "Courier",
+        fontSize: "22px",
+        color: "#ffffff",
+        fontStyle: "bold",
+        stroke: "#081a33",
+        strokeThickness: 5,
+        align: "center",
+        lineSpacing: 10,
+        wordWrap: {
+          width: width - 40
+        }
       }
-    }).setOrigin(0.5);
+    ).setOrigin(0.5);
+
+    creditsText.setDepth(5);
+
+    // --------------------------------------------------
+    // MENTION LEGALE
+    // --------------------------------------------------
+
+    const rightsText = this.add.text(
+      width / 2,
+      height * 0.685,
+      `© 2026 — Tous droits réservés.`,
+      {
+        fontFamily: "Courier",
+        fontSize: "22px",
+        color: "#ffffff",
+        fontStyle: "bold",
+        stroke: "#081a33",
+        strokeThickness: 5,
+        align: "center",
+        lineSpacing: 6,
+        wordWrap: {
+          width: width - 40
+        }
+      }
+    ).setOrigin(0.5);
+
+    rightsText.setDepth(5);
+
+    // --------------------------------------------------
+    // INVITATION A PARTAGER
+    // --------------------------------------------------
+
+    const shareText = this.add.text(
+      width / 2,
+      height * 0.755,
+      `Tu as aimé ce jeu ?
+Alors laisse moi un petit message sur les réseaux :`,
+      {
+        fontFamily: "Courier",
+        fontSize: "20px",
+        color: "#ffe066",
+        fontStyle: "bold",
+        stroke: "#081a33",
+        strokeThickness: 4,
+        align: "center",
+        lineSpacing: 6,
+        wordWrap: {
+          width: width - 40
+        }
+      }
+    ).setOrigin(0.5);
+
+    shareText.setDepth(5);
 
     // --------------------------------------------------
     // RESEAUX SOCIAUX
     // --------------------------------------------------
 
-    const linksY = height * 0.81;
+    const linksY = height * 0.82;
 
     // Instagram
     this.createSocialIcon(
@@ -105,12 +169,12 @@ Soutiens UHO sur les réseaux :
 
     const back = this.add.text(
       width / 2,
-      height * 0.87,
+      height * 0.93,
       "RETOUR MENU",
       {
         fontFamily: "Courier",
-        fontSize: "22px",
-        color: "#ffffff",
+        fontSize: "24px",
+        color: "#ffe066",
         fontStyle: "bold",
         stroke: "#081a33",
         strokeThickness: 6
@@ -155,7 +219,7 @@ Soutiens UHO sur les réseaux :
   createSocialIcon(x, y, key, url) {
     const icon = this.add.image(x, y, key);
 
-    // Taille légèrement agrandie pour les 4 icônes
+    // Taille des 4 icônes
     icon.setDisplaySize(82, 82);
 
     icon.setDepth(5);
@@ -176,14 +240,13 @@ Soutiens UHO sur les réseaux :
         if (!opened) {
           window.location.href = url;
         }
-
       } catch (e) {
         window.location.href = url;
       }
     });
 
-    // Pas de changement de taille au survol/clic :
-    // l'icône reste toujours à sa taille normale.
+    // Pas de changement de taille au survol/clic
+    // L'icône reste toujours à sa taille normale.
   }
 
   // --------------------------------------------------
@@ -229,7 +292,6 @@ Soutiens UHO sur les réseaux :
         if (!opened) {
           window.location.href = url;
         }
-
       } catch (e) {
         window.location.href = url;
       }

@@ -40,8 +40,8 @@ export default class MenuScene extends Phaser.Scene {
     const zoneBottom = uho.y - uho.displayHeight / 2;
     const centerY = (zoneTop + zoneBottom) / 2;
 
-    const panneau = this.add.image(width / 2, centerY - 0, "panneau-aveytour");
-    panneau.setScale(0.36);
+    const panneau = this.add.image(width / 2, centerY - 0, "jouer");
+    panneau.setScale(0.20);
     panneau.setDepth(3);
     panneau.setInteractive({ useHandCursor: true });
 
@@ -50,19 +50,19 @@ export default class MenuScene extends Phaser.Scene {
       if (navigator.vibrate) {
         navigator.vibrate([40, 30, 60]);
       }
-      this.scene.start("PlayScene");
+      this.scene.start("LoadingScene");
     });
 
     panneau.on("pointerover", () => {
-      panneau.setScale(0.39);
+      panneau.setScale(0.22);
     });
 
     panneau.on("pointerout", () => {
-      panneau.setScale(0.36);
+      panneau.setScale(0.20);
     });
 
     const creditsBtn = this.add.image(width / 2, centerY + 480, "credits");
-    creditsBtn.setScale(0.18);
+    creditsBtn.setScale(0.15);
     creditsBtn.setDepth(3);
     creditsBtn.setInteractive({ useHandCursor: true });
 
@@ -72,11 +72,11 @@ export default class MenuScene extends Phaser.Scene {
     });
 
     creditsBtn.on("pointerover", () => {
-      creditsBtn.setScale(0.195);
+      creditsBtn.setScale(0.165);
     });
 
     creditsBtn.on("pointerout", () => {
-      creditsBtn.setScale(0.18);
+      creditsBtn.setScale(0.15);
     });
 
     this.noteTextures = ["jaune", "bleue", "rouge", "verte"];

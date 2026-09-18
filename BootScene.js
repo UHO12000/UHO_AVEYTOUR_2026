@@ -16,10 +16,10 @@ export class BootScene extends Phaser.Scene {
     });
 
     this.load.image("aveytour-map", "assets/background/uhomapblanc.png");
-    this.load.image("panneau-aveytour", "assets/panneaux/aveytour.png");
+    this.load.image("jouer", "assets/panneaux/jouer.png");
     this.load.image("uho", "assets/player/uho.png");
     this.load.image("credits", "assets/panneaux/credits.png");
-	this.load.image("fond-accueil", "assets/background/fondaccueil.png");
+	this.load.image("fond-accueil", "assets/background/fondaccueil2.png");
 
     this.load.image("jaune", "assets/notes/jaune.png");
     this.load.image("bleue", "assets/notes/bleue.png");
